@@ -4,7 +4,7 @@ This project evolves my understanding and code for bottom navbar navigation w/in
 
 ## Getting Started
 
-FitHome has four bottom navigation items.
+FitHome has four bottom navigation items.  
 ![FitHome Dashboard](https://github.com/BitKnitting/Flutter_learning_botnavbar/blob/master/doc_images/FitHome_dashboard.png)
 
 This project is a starting point for a Flutter application.
