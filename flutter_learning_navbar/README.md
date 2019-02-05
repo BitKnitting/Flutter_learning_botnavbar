@@ -14,3 +14,4 @@ To fix this explicitly set the BottomNavigationBar's type:
 bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
 ```          
+...code is pretty self explanatory.

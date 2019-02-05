@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dashboard.dart';
+import 'activities.dart';
+import 'leaderboard.dart';
+import 'contactus.dart';
 
 class BottomNavBarPage extends StatefulWidget {
   BottomNavBarPage({this.title});
@@ -9,17 +13,27 @@ class BottomNavBarPage extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBarPage> {
+  // which screen is currently being displayed - Dashboard, Activities...
+  int _currentScreen = 0;
+  final List<Widget> _screen = [
+    DashboardPage(),
+    ActivitiesPage(),
+    LeaderboardPage(),
+    ContactUsPage()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      body: SafeArea(
+          child: _screen[_currentScreen],
+      ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: onTabTapped,
         type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
+        currentIndex: _currentScreen,
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
@@ -40,5 +54,16 @@ class _BottomNavBarState extends State<BottomNavBarPage> {
         ],
       ),
     );
+  }
+
+//
+// When the user taps on one of the tabs on the bottom nav bar, which tab
+// is tapped is passed in (as the index variable).  We update our knowledge
+// of what screen is currently being displayed
+//
+  void onTabTapped(int index) {
+    setState(() {
+      _currentScreen = index;
+    });
   }
 }
