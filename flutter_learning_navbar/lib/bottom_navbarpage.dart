@@ -14,8 +14,8 @@ class BottomNavBarPage extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBarPage> {
   // which screen is currently being displayed - Dashboard, Activities...
-  int _currentScreen = 0;
-  final List<Widget> _screen = [
+  int _currentPage = 0;
+  final List<Widget> _pages = [
     DashboardPage(),
     ActivitiesPage(),
     LeaderboardPage(),
@@ -28,12 +28,12 @@ class _BottomNavBarState extends State<BottomNavBarPage> {
         title: Text(widget.title),
       ),
       body: SafeArea(
-          child: _screen[_currentScreen],
+          child: _pages[_currentPage],
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
         type: BottomNavigationBarType.fixed,
-        currentIndex: _currentScreen,
+        currentIndex: _currentPage,
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
@@ -63,7 +63,7 @@ class _BottomNavBarState extends State<BottomNavBarPage> {
 //
   void onTabTapped(int index) {
     setState(() {
-      _currentScreen = index;
+      _currentPage = index;
     });
   }
 }
